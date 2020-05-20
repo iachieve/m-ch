@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
-import './rewards_categories.scss';
-
 class catTemplate {
   constructor(id, category = null, reward = null) {
     this.id = id;
