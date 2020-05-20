@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-category_1 = Category.create({name: 'C1'});
-category_2 = Category.create({name: 'C2'});
-category_3 = Category.create({name: 'C3'});
-category_4 = Category.create({name: 'C4'});
-category_5 = Category.create({name: 'C5'});
+category_1 = Category.new({name: 'C1'});
+category_2 = Category.new({name: 'C2'});
+category_3 = Category.new({name: 'C3'});
+category_4 = Category.new({name: 'C4'});
+category_5 = Category.new({name: 'C5'});
 
 reward_1 = Reward.create({name: 'R1'});
 reward_2 = Reward.create({name: 'R2'});
@@ -28,3 +28,10 @@ category_3.rewards << reward_4
 category_4.rewards << reward_3
 
 category_5.rewards << reward_5
+
+
+category_1.save
+category_2.save
+category_3.save
+category_4.save
+category_5.save
