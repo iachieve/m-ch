@@ -1,0 +1,37 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin global-transition {
+  transition: all ease-in-out 350ms;
+}
+
+$cell-height: 50px;
+$cell-width: 100px;
+$header-height: 60px;
+$subheader-height: 30px;
+
+
+.grid {
+  display: flex;
+}
+
+.tbl-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.cell {
+  height: 50px;
+  width: 50px;
+  background: lightcyan;
+  border: 1px solid orchid;
+}

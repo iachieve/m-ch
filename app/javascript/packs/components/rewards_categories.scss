@@ -1,0 +1,129 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin global-transition {
+  transition: all ease-in-out 350ms;
+}
+
+$cell-height: 50px;
+$cell-width: 100px;
+$header-height: 60px;
+$subheader-height: 30px;
+
+.outer-grid {
+  display: grid;
+  grid-template-columns: minmax(min-content, 100px) 1fr;
+}
+
+.tbl-rewards {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+
+  &__header {
+    @include flex-center();
+    height: $header-height;
+    border-bottom: 1px solid black;
+    background: lightgray;
+  }
+
+  &__cell {
+    @include flex-center();
+    height: $cell-height;
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid black;
+    }
+  }
+}
+
+.tbl-cat {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    background-color: lightgray;
+    text-align: center;
+    height: $subheader-height;
+  }
+
+  &__sub-header {
+    background-color: lightgray;
+    border-bottom: 1px solid black;
+    display: flex;
+    height: $subheader-height;
+
+    &>div {
+      width: 100px;
+      text-align: center;
+    }
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__cell {
+    width: 100px;
+
+    height: $cell-height;
+    border: 1px solid darkgray;
+    padding: 5px;
+
+    &-content {
+      @include flex-center();
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border: 1px solid darkgray;
+      border-radius: 3px;
+
+      &>button {
+        @include global-transition();
+        border: none;
+        outline: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: lightgray;
+        font-size: .8rem;
+      }
+
+      &>button:hover {
+        background: indianred;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.droppable {
+  border: 1px solid rgb(178, 218, 5);
+  background: lightyellow;
+  color: orchid;
+
+}
+
+.draggable {
+  border: 1px solid rgb(8, 128, 128);
+  background: cyan;
+  color: rgb(12, 149, 235);
+}
+
+.hide {
+  display: none;
+}

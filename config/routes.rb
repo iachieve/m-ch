@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'homepage#index'
+    namespace :v1 do
+      resources :categories, only: %i[index]
+      resources :rewards
+      patch 'categories/update_bulk', controller: 'categories', action: :update_bulk
+  end
 end
